@@ -1,0 +1,21 @@
+{
+    "name": "gevann/bfapi",
+    "description": "Bastion Flowe offernet api",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "gevann",
+            "email": "gevannm@bastionflowe.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "phpdocumentor/phpdocumentor": "2.*",
+        "facebook/graph-sdk": "^5.0@dev",
+        "guzzlehttp/guzzle": "^6.3@dev",
+        "zendframework/zend-httphandlerrunner": "^1.1@dev",
+        "paragonie/random_compat": "dev-master",
+        "facebook/php-business-sdk": "^3.0.0"
+    }
+}

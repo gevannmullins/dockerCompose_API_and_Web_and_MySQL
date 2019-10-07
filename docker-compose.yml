@@ -4,7 +4,7 @@ services:
   # we named our first service 'web'
   web:
     # pass a hostname to the container (optinal)
-    hostname: goodbytes.local
+    hostname: app.local
     
     # build a custom image 
     build:
@@ -12,7 +12,7 @@ services:
       dockerfile: .docker/web.dockerfile
     
     # a name for easier reference
-    image: goodbytes.local
+    image: app.local
 
     # map host port 8080 to container port 80
     ports:
@@ -26,16 +26,18 @@ services:
     # first load the 'db' service 
     depends_on:
       - db
+      - api
     
     # make 'db' a known service/host inside of 'web'
     # use this to make a mysql connection to host 'db'
     links:
       - db
+      - api
   
   # we named our first service 'web'
   api:
-    # pass a hostname to the container (optinal)
-    hostname: goodbytes.api
+    # pass a hostname to the container (optional)
+    hostname: app.api
     
     # build a custom image 
     build:
@@ -43,7 +45,7 @@ services:
       dockerfile: .docker/api.dockerfile
     
     # a name for easier reference
-    image: goodbytes.api
+    image: app.api
 
     # map host port 8080 to container port 80
     ports:
@@ -74,7 +76,7 @@ services:
 
     # the mysql image uses these to create database and users
     environment: 
-      MYSQL_ROOT_PASSWORD: root_password
-      MYSQL_DATABASE: bolt
-      MYSQL_USER: bolt
-      MYSQL_PASSWORD: bolt_password
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: api_database
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: admin
